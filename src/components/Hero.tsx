@@ -72,7 +72,7 @@ export function Hero() {
             A 5-day course that takes you from random prompting to building systems that finally give you the quality you’ve been hoping for. 
             </p>
             <div className="mt-8 flex gap-4">
-              <Button href="#" color="blue">
+              <Button href="https://buy.stripe.com/28E28se7Qg8ogRX0CfeME03" color="blue">
                 Buy the course - $27
               </Button>
               <Button href="#introduction" variant="outline" color="blue">

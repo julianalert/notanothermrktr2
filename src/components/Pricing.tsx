@@ -129,7 +129,7 @@ export function Pricing() {
             name="5-day course"
             description="Everything icon resource you could ever ask for."
             price="27"
-            href="#"
+            href="https://buy.stripe.com/28E28se7Qg8ogRX0CfeME03"
             features={[
               'The full 5-day email course',
               'The Content Transformer Agent Blueprint',

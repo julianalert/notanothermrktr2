@@ -57,7 +57,7 @@ export function Introduction() {
         </p>
         <p className="mt-10">
           <Link
-            href="#"
+            href="https://buy.stripe.com/28E28se7Qg8ogRX0CfeME03"
             className="text-base font-medium text-blue-600 hover:text-blue-800"
           >
             Buy the course - $27{' '}
