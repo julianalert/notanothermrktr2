@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { GridPattern } from '@/components/GridPattern'
 import { StarRating } from '@/components/StarRating'
-import coverImage from '@/images/cover.png'
+import coverImage from '@/images/marketing-ai-course.png'
 
 function Testimonial() {
   return (
