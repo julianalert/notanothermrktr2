@@ -94,9 +94,14 @@ export function TableOfContents() {
           </ol>
           <ExpandableButton>See more</ExpandableButton>
         </Expandable>
-        <p className="mt-20 font-display text-4xl font-bold tracking-tight text-slate-900">
-        🧠 What you’ll be able to do after the course
-        </p>
+        <div id="after-this-course" className="scroll-mt-14 mt-20">
+          <SectionHeading number="2" id="after-this-course-title">
+            After this course
+          </SectionHeading>
+          <p className="mt-8 font-display text-4xl font-bold tracking-tight text-slate-900">
+            🧠 What you'll be able to do after the course
+          </p>
+        </div>
         <ul role="list" className="mt-8 space-y-3">
           {[
             'Create a reusable AI system you can return to every day for consistent, high-quality output.',

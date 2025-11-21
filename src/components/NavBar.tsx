@@ -9,6 +9,7 @@ const sections = [
     id: 'table-of-contents',
     title: "What's inside?",
   },
+  { id: 'after-this-course', title: 'After this course' },
   { id: 'pricing', title: 'Pricing' },
   { id: 'author', title: 'Author' },
 ]
