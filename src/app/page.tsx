@@ -43,7 +43,7 @@ export default function Home() {
         }}
       >
         <p>
-          “When you understand how to truly use GPT, it's like a whole new world opens up. This course did that for me.”
+          "When you understand how to truly use GPT, it's like a whole new world opens up. This course did that for me."
         </p>
       </Testimonial>
       <Author />
