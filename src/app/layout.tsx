@@ -1,5 +1,6 @@
 import { type Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import clsx from 'clsx'
 
 import '@/styles/tailwind.css'
@@ -99,7 +100,14 @@ export default function RootLayout({
           href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700&display=swap"
         />
       </head>
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {children}
+        <Script
+          src="https://beamanalytics.b-cdn.net/beam.min.js"
+          data-token="89917764-1a08-41cb-a476-0228a94f49af"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   )
 }
