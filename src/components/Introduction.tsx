@@ -1,5 +1,4 @@
-import Link from 'next/link'
-
+import { Button } from '@/components/Button'
 import { CheckIcon } from '@/components/CheckIcon'
 import { Container } from '@/components/Container'
 
@@ -11,15 +10,17 @@ export function Introduction() {
       className="pt-20 pb-16 sm:pb-20 md:pt-36 lg:py-32"
     >
       <Container className="text-lg tracking-tight text-slate-700">
-        <p className="font-display text-4xl font-bold tracking-tight text-slate-900">
-          The truth? You are playing with AI tools. 
+      <p className="font-display text-4xl font-bold tracking-tight text-slate-900">
+      Ever fought with GPT for half an hour and felt like tearing your hair out?
         </p>
+        <p className="mt-4">
+        The truth is you are playing with AI tools. 
+        </p>
+        <p className="mt-4">You start from scratch every time.</p>
         <p className="mt-4">
         You write random prompts.
         </p>
-        <p className="mt-4">You start from scratch every time.</p>
-        <p className="mt-4">You get inconsistent results.</p>
-        <p className="mt-4">You’re always 6–12 months behind the curve.</p>
+        <p className="mt-4">And you get inconsistent results.</p>
         <p className="mt-4 font-display text-4xl font-bold tracking-tight text-slate-900">
         Using ChatGPT ≠ leveraging AI.
         </p>
@@ -29,7 +30,7 @@ export function Introduction() {
         <p className="mt-4">You’re still doing tasks AI could handle for you.</p>
         <p className="mt-4">You’re still reinventing the wheel every week.</p>
         <p className="mt-4">It’s not your fault.</p>
-        <p className="mt-4">Nobody taught you how to build AI systems, not prompts.</p>
+        <p className="mt-4">Nobody taught you how to build AI systems like the top 1% marketers do.</p>
         <p className="mt-4">Until now.</p>
         <p className="mt-4 font-display text-4xl font-bold tracking-tight text-slate-900">
         You’ll learn the frameworks used by top 1% marketers to:
@@ -55,15 +56,11 @@ export function Introduction() {
         <p className="mt-8">
           It’s a practical transformation in how you think, organize and execute with AI. 
         </p>
-        <p className="mt-10">
-          <Link
-            href="https://buy.stripe.com/28E28se7Qg8ogRX0CfeME03"
-            className="text-base font-medium text-blue-600 hover:text-blue-800"
-          >
-            Buy the course - $27{' '}
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </p>
+        <div className="mt-10">
+          <Button href="https://buy.stripe.com/28E28se7Qg8ogRX0CfeME03" color="blue">
+            Buy the course - $27
+          </Button>
+        </div>
       </Container>
     </section>
   )

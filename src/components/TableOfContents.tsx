@@ -70,20 +70,11 @@ export function TableOfContents() {
                     {Object.entries(pages).map(([title, pageNumber]) => (
                       <li
                         key={title}
-                        className="flex justify-between py-3"
-                        aria-label={`${title} on page ${pageNumber}`}
+                        className="py-3"
+                        aria-label={title}
                       >
-                        <span
-                          className="font-medium text-slate-900"
-                          aria-hidden="true"
-                        >
+                        <span className="font-medium text-slate-900">
                           {title}
-                        </span>
-                        <span
-                          className="font-mono text-slate-400"
-                          aria-hidden="true"
-                        >
-                          {pageNumber}
                         </span>
                       </li>
                     ))}
@@ -99,7 +90,7 @@ export function TableOfContents() {
             After this course
           </SectionHeading>
           <p className="mt-8 font-display text-4xl font-bold tracking-tight text-slate-900">
-            🧠 What you'll be able to do after the course
+            🧠 After this course, you'll be able to:
           </p>
         </div>
         <ul role="list" className="mt-8 space-y-3">

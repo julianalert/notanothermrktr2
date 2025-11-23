@@ -5,6 +5,7 @@ import { Button } from '@/components/Button'
 import { GridPattern } from '@/components/GridPattern'
 import { StarRating } from '@/components/StarRating'
 import coverImage from '@/images/marketing-ai-course.png'
+import clementImage from '@/images/clement.jpg'
 
 function Testimonial() {
   return (
@@ -14,30 +15,38 @@ function Testimonial() {
       </div>
       <blockquote className="mt-2">
         <p className="font-display text-xl font-medium text-slate-900">
-          "This course transformed how I work with AI. I'm producing
-          better content in a fraction of the time."
+          "This course transformed everything. Honestly. 10x output, half the work."
         </p>
       </blockquote>
       <figcaption className="mt-2 text-sm text-slate-500">
-        <strong className="font-semibold text-blue-600 before:content-['—_']">
+        <div className="flex items-center justify-center gap-2 lg:justify-start">
+          <Image
+            src={clementImage}
+            alt="Clément Bernard"
+            className="h-8 w-8 rounded-full"
+            width={32}
+            height={32}
+          />
+          <strong className="font-semibold text-blue-600">
+            <Link
+              href="https://x.com/Clement_brnrd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-800"
+            >
+              Clément Bernard
+            </Link>
+          </strong>
+          , CMO @{' '}
           <Link
-            href="https://x.com/Clement_brnrd"
+            href="https://trydetour.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-800"
+            className="hover:text-slate-700 hover:underline"
           >
-            Clément Bernard
+            Trydetour.com
           </Link>
-        </strong>
-        , CMO @{' '}
-        <Link
-          href="https://trydetour.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-slate-700 hover:underline"
-        >
-          Trydetour.com
-        </Link>
+        </div>
       </figcaption>
     </figure>
   )

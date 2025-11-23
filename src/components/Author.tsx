@@ -50,8 +50,8 @@ export function Author() {
               >
                 co-founder & CMO
               </Link>{' '}
-              of a $2M ARR fintech: Request Finance. In the past 2 years, I scaled Request Finance from $10k ARR to $2M ARR, as the one and only marketer. All of that thanks to AI. 
-              I designed this course to help you use AI like a top 1% marketer quickly and efficiently. Any question, hit me up on X.
+              of a $2M ARR fintech: Request Finance. In the past 2 years, I scaled Request Finance from $10k ARR to $2M ARR, as the one and only marketer. I built the AI systems that helped me do that, gathered all my learnings and created this course. 
+              This course is designed to help you use AI like a top 1% marketer quickly and efficiently. Any question, hit me up on X.
             </p>
             <p className="mt-8">
               <Link

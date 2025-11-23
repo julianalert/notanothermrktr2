@@ -10,8 +10,8 @@ import { Screencasts } from '@/components/Screencasts'
 import { TableOfContents } from '@/components/TableOfContents'
 import { Testimonial } from '@/components/Testimonial'
 import { Testimonials } from '@/components/Testimonials'
-import avatarImage1 from '@/images/avatars/avatar-1.png'
-import avatarImage2 from '@/images/avatars/avatar-2.png'
+import avatarImage1 from '@/images/toni.jpeg'
+import avatarImage2 from '@/images/ben.jpeg'
 
 export default function Home() {
   return (
@@ -23,9 +23,11 @@ export default function Home() {
       <Testimonial
         id="testimonial-from-tommy-stroman"
         author={{
-          name: 'Tommy Stroman',
-          role: 'Front-end developer',
+          name: 'Toni Porter',
+          role: 'Senior Marketing Manager @ Crate&Barrel',
           image: avatarImage1,
+          companyLink: 'https://www.crateandbarrel.com/',
+          authorLink: 'https://www.linkedin.com/in/tonisichel/',
         }}
       >
         <p>
@@ -37,9 +39,11 @@ export default function Home() {
       <Testimonial
         id="testimonial-from-gerardo-stark"
         author={{
-          name: 'Gerardo Stark',
-          role: 'Creator of Pandemicons',
+          name: 'Ben Shafi',
+          role: 'Founder @ 0.finance',
           image: avatarImage2,
+          companyLink: 'https://www.0.finance/',
+          authorLink: 'https://www.linkedin.com/in/ben-shafii-450039107/',
         }}
       >
         <p>

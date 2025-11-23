@@ -1,4 +1,5 @@
 import Image, { type ImageProps } from 'next/image'
+import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import { GridPattern } from '@/components/GridPattern'
@@ -10,7 +11,7 @@ export function Testimonial({
   children,
 }: {
   id: string
-  author: { name: string; role: string; image: ImageProps['src'] }
+  author: { name: string; role: string; image: ImageProps['src']; companyLink?: string; authorLink?: string }
   children: React.ReactNode
 }) {
   return (
@@ -42,9 +43,52 @@ export function Testimonial({
             </div>
             <div className="ml-4">
               <div className="text-base/6 font-medium tracking-tight text-slate-900">
-                {author.name}
+                {author.authorLink ? (
+                  <Link
+                    href={author.authorLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600 hover:underline"
+                  >
+                    {author.name}
+                  </Link>
+                ) : (
+                  author.name
+                )}
               </div>
-              <div className="mt-1 text-sm text-slate-600">{author.role}</div>
+              <div className="mt-1 text-sm text-slate-600">
+                {author.companyLink ? (
+                  author.role.includes('@') ? (
+                    <>
+                      {author.role.split('@')[0]}@{' '}
+                      <Link
+                        href={author.companyLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-slate-900 hover:underline"
+                      >
+                        {author.role.split('@')[1]}
+                      </Link>
+                    </>
+                  ) : author.role.includes(' of ') ? (
+                    <>
+                      {author.role.split(' of ')[0]} of{' '}
+                      <Link
+                        href={author.companyLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-slate-900 hover:underline"
+                      >
+                        {author.role.split(' of ')[1]}
+                      </Link>
+                    </>
+                  ) : (
+                    author.role
+                  )
+                ) : (
+                  author.role
+                )}
+              </div>
             </div>
           </figcaption>
         </figure>
