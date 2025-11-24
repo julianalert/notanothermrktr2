@@ -8,25 +8,25 @@ import { SectionHeading } from '@/components/SectionHeading'
 import { CheckIcon } from './CheckIcon'
 
 const tableOfContents = {
-  'Day 1: Why You’re Still Working Like It’s 2023? The AI Illusion': {
-    'The hidden reason AI feels powerful but never actually saves you time': 1,
-    'The mindset shift that separates AI dabblers from AI operators': 15,
-    'A simple exercise that instantly changes how you look at your workflow': 20,
+  'Day 1: Why You’re Not Getting the Results You Expect From AI': {
+    'The core reason your AI outputs feel inconsistent or “off”': 1,
+    'What separates people who get great results from those who don’t': 15,
+    'How to identify the exact gaps that are limiting your AI potential': 20,
   },
-  'Day 2: The Secret to 10× Output With the Same Effort': {
-    'Why prompting “smarter” will never fix your AI problems': 21,
-    'The structure behind every scalable AI workflow': 22,
+  'Day 2: The Hidden Structure Behind Great AI Results': {
+    'The simple way to turn messy tasks into clean, step-by-step workflows': 21,
+    'How to guide AI through complex work without rewriting prompts': 22,
     'A method to turn any repeated task into a repeatable system': 26,
   },
-  'Day 3: Give Your AI a Brain': {
-    'The overlooked trick that makes your AI’s output dramatically better': 50,
-    'How to make AI adapt to your style, not the other way around': 57,
+  'Day 3: How to Make AI Adapt to You (Not the Other Way Around)': {
+    'How to give AI a “memory” of your tone, style, and preferences': 50,
+    'The elements AI needs to consistently sound like you': 57,
     'A simple system that makes your results improve week after week': 66,
   },
-  'Day 4: Build your first AI Agent, no coding needed': {
-    'Bring together everything you’ve learned into one powerful system': 82,
-    'Watch how it transforms raw input into high-quality output': 88,
-    'The refinement loop pros use to elevate results instantly': 95,
+  'Day 4: Build Your First AI System (No Technical Skills Needed)': {
+    'How to bring structure + memory together into one working system': 82,
+    'How to run real inputs through it and get polished, usable output': 88,
+    'How to refine and strengthen your system with a feedback loop': 95,
   },
   'Day 5: This Is How You Become a 10× Marketer': {
     'The 3 essential AI systems every marketer needs': 82,
