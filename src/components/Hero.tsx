@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 import { Button } from '@/components/Button'
 import { GridPattern } from '@/components/GridPattern'
@@ -53,6 +56,39 @@ function Testimonial() {
 }
 
 export function Hero() {
+  const [email, setEmail] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      const response = await fetch('/api/download-course', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to download course')
+      }
+
+      setIsSuccess(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <header className="overflow-hidden bg-slate-100 lg:bg-transparent lg:px-5">
       <div className="mx-auto grid max-w-6xl grid-cols-1 grid-rows-[auto_1fr] gap-y-16 pt-16 md:pt-20 lg:grid-cols-12 lg:gap-y-20 lg:px-3 lg:pt-20 lg:pb-36 xl:py-32">
@@ -80,14 +116,37 @@ export function Hero() {
             <p className="mt-4 text-3xl text-slate-600">
             A 5-day course that takes you from random prompting to building systems that finally give you the quality you’ve been hoping for. 
             </p>
-            <div className="mt-8 flex gap-4">
-              <Button href="https://buy.stripe.com/28E28se7Qg8ogRX0CfeME03" color="blue">
-                Buy the course - $27
-              </Button>
-              <Button href="#introduction" variant="outline" color="blue">
-                Learn more
-              </Button>
-            </div>
+            {isSuccess ? (
+              <div className="mt-8 rounded-md bg-green-50 p-4">
+                <p className="text-sm font-medium text-green-800">
+                  Check your email for course access details!
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="mt-8">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    className="flex-1 rounded-md border border-slate-300 bg-white px-4 py-2 text-base text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <Button
+                    type="submit"
+                    color="blue"
+                    disabled={isLoading}
+                    className="!py-2 cursor-pointer whitespace-nowrap"
+                  >
+                    {isLoading ? 'Downloading...' : 'Start the course'}
+                  </Button>
+                </div>
+                {error && (
+                  <p className="mt-2 text-sm text-red-600">{error}</p>
+                )}
+              </form>
+            )}
           </div>
         </div>
       </div>

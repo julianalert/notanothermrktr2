@@ -1,4 +1,7 @@
+'use client'
+
 import clsx from 'clsx'
+import { useState } from 'react'
 
 import { Button } from '@/components/Button'
 import { CheckIcon } from '@/components/CheckIcon'
@@ -11,16 +14,47 @@ function Plan({
   description,
   price,
   features,
-  href,
   featured = false,
 }: {
   name: string
   description: string
   price: string
   features: Array<string>
-  href: string
   featured?: boolean
 }) {
+  const [email, setEmail] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      const response = await fetch('/api/download-course', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to download course')
+      }
+
+      setIsSuccess(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <div
       className={clsx(
@@ -53,15 +87,7 @@ function Plan({
         <p className="order-first flex font-display font-bold">
           <span
             className={clsx(
-              'text-[1.75rem]/9',
-              featured ? 'text-blue-200' : 'text-slate-500',
-            )}
-          >
-            $
-          </span>
-          <span
-            className={clsx(
-              'mt-1 ml-1 text-7xl tracking-tight',
+              'mt-1 text-7xl tracking-tight',
               featured ? 'text-white' : 'text-slate-900',
             )}
           >
@@ -91,14 +117,42 @@ function Plan({
             ))}
           </ul>
         </div>
-        <Button
-          href={href}
-          color={featured ? 'white' : 'slate'}
-          className="mt-8"
-          aria-label={`Get started with the ${name} plan for $${price}`}
-        >
-          Buy the course
-        </Button>
+        {isSuccess ? (
+          <div className="mt-8 rounded-md bg-green-50 p-4">
+            <p className="text-sm font-medium text-green-800">
+              Check your email for course access details!
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="mt-8">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+                className={clsx(
+                  'flex-1 rounded-md border px-4 py-2 text-base',
+                  featured
+                    ? 'border-white/20 bg-white/10 text-white placeholder:text-white/60 focus:border-white/40 focus:outline-none focus:ring-2 focus:ring-white/20'
+                    : 'border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500',
+                )}
+              />
+              <Button
+                type="submit"
+                color={featured ? 'white' : 'blue'}
+                disabled={isLoading}
+                className="!py-2 cursor-pointer whitespace-nowrap"
+              >
+                {isLoading ? 'Downloading...' : 'Start the course'}
+              </Button>
+            </div>
+            {error && (
+              <p className="mt-2 text-sm text-red-600">{error}</p>
+            )}
+          </form>
+        )}
       </div>
     </div>
   )
@@ -128,8 +182,7 @@ export function Pricing() {
             featured
             name="5-day course"
             description="Everything icon resource you could ever ask for."
-            price="27"
-            href="https://buy.stripe.com/28E28se7Qg8ogRX0CfeME03"
+            price="Free"
             features={[
               'The full 5-day email course',
               'The Content Transformer Agent Blueprint',
